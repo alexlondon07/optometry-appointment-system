@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 100);
             $table->string('profile',45);
             $table->string('enable',10);
+            $table->string('slug');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
