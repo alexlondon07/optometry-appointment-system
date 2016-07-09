@@ -49,7 +49,7 @@
                             <td style="width: 150px !important">
                                 <table>
                                     <tr>
-                                        <td><a title="Detalles" href="{!! URL::to('/') !!}/admin/user/{!! $item->id !!}"><span class="glyphicon glyphicon-eye-open btn btn-default btn-xs"></span></a></td>
+                                        <td><a title="Detalles" href="{!! URL::to('/') !!}/admin/user/{!! $item->slug !!}"><span class="glyphicon glyphicon-eye-open btn btn-default btn-xs"></span></a></td>
                                         <td><a title="Editar" href="{!! URL::to('/') !!}/admin/user/{!! $item->id !!}/edit"><span class="glyphicon glyphicon-pencil btn btn-default btn-xs"></span></a></td>
                                         <td>{!! Form::open(['action' => ['UserController@destroy', $item->id], 'method' => 'delete', 'style' => 'display: inline;']) !!}
                                             <button title="Eliminar" type="submit" onclick="return Util.confirmDelete(this);" class="glyphicon glyphicon-trash btn btn-default btn-xs"></button>
@@ -89,6 +89,3 @@
     </div>
 </div>
 @stop
-
-
-

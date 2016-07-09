@@ -37,28 +37,14 @@ Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 /*
- * Rutas para las vistas de administracion de nuestra aplicacion
- */
- Route::group(array('prefix' => 'admin', 'middleware' => 'auth'), function() {
-	 			Route::resource('main', 'HomeController@main');
-				//Usuarios
-				Route::resource('user', 'UserController');
-        Route::get('users/search', 'UserController@search');
-				//Materias Primas
-        Route::resource('raw_material', 'RawMaterialController');
-        Route::get('raw_materials/search', 'RawMaterialController@search');
-				//Actividades
-        Route::resource('activity', 'ActivityController');
-        Route::get('activitys/search', 'ActivityController@search');
-				//Maquinas
-        Route::resource('machine', 'MachineController');
-        Route::get('machines/search', 'MachineController@search');
-				//Productos
-        Route::resource('product', 'ProductController');
-        Route::get('products/search', 'ProductController@search');
- });
+* Rutas para las vistas de administracion de nuestra aplicacion
+*/
+Route::group(array('prefix' => 'admin', 'middleware' => 'auth'), function() {
+  //Home
+  Route::resource('main', 'HomeController@main');
 
- // llamados ajax
- Route::group(array('prefix' => 'ajax'), function() {
-     Route::any('get_machine_data_table', 'ActivityController@getMachineDataTable');
- });
+  //Usuarios
+  Route::resource('user', 'UserController');
+  Route::get('user/{slug}', ['as' => 'post', 'uses' => 'UserController@show']);
+  Route::get('users/search', 'UserController@search');
+});

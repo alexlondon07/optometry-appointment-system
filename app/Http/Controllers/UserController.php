@@ -64,12 +64,13 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-      $user = User::findOrFail($id);
+      $user = User::where('slug','=', $slug)->firstOrFail();
+      //$user = User::findOrFail($id);
       $show = true;
       return View::make('admin.user.new_edit_user', compact('user', 'show'));
     }
@@ -81,8 +82,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-      $user = User::findOrFail($id);
+      $user = User::find($id);
       $show = false;
+      if (!$user) {
+          return Redirect::to('admin/user')->with('info_message', 'Usuario no encontrado!');
+      }
       return View::make('admin.user.new_edit_user', compact('user', 'show'));
     }
 
