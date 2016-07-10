@@ -104,10 +104,9 @@ return [
     */
 
     'attributes' => [
-        'email' => 'Correo Electronico',
+        'email' => 'Email',
         'password'=>'Contraseña',
         'name'=>'Nombre',
-        'reference'=>'Referencia',
-        'type'=>'Tipo',
+        'document'=>'Documento',
     ],
 ];

@@ -8,13 +8,13 @@
                         <div class="form-group">
                             {!!Form::label('name', 'Nombre', array('class' => 'control-label col-md-4'))!!}
                             <div class="col-md-6">
-                                {!!Form::text('name',null, array('class' => 'form-control'))!!}
+                                {!!Form::text('name',null, array('class' => 'form-control', 'placeholder' => 'Ingrese Nombre'))!!}
                             </div>
                         </div>
                         <div class="form-group">
                             {!!Form::label('document', 'Numero de documento', array('class' => 'control-label col-md-4'))!!}
                             <div class="col-md-6">
-                                {!!Form::text('document',null, array('class' => 'form-control'))!!}
+                                {!!Form::text('document',null, array('class' => 'form-control', 'placeholder' => 'Ingrese número de documento'))!!}
                             </div>
                         </div>
                         <div class="form-group">
@@ -40,13 +40,13 @@
                         <div class="form-group">
                             {!!Form::label('email', 'Email', array('class' => 'control-label col-md-4'))!!}
                             <div class="col-md-6">
-                                {!!Form::text('email',null, array('class' => 'form-control'))!!}
+                                {!!Form::text('email',null, array('class' => 'form-control', 'placeholder' => 'Ingrese email'))!!}
                             </div>
                         </div>
 
                         <div class="form-group">
                             {!!Form::label('password', 'Contraseña', array('class' => 'control-label col-md-4'))!!}
                             <div class="col-md-6">
-                                    {!!Form::password('password', array('class' => 'form-control'))!!}
+                                    {!!Form::password('password', array('class' => 'form-control', 'placeholder' => 'Ingrese password'))!!}
                             </div>
                         </div>

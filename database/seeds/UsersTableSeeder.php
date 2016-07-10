@@ -11,6 +11,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+      DB::table('attachment')->truncate();
       DB::table('users')->truncate();
 
       factory(App\User::class)->create([

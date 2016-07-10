@@ -22,7 +22,6 @@ class UserController extends Controller
     public function index()
     {
       $items = User::paginate();
-      //dd($items);
       $items->setPath('user');
       return View::make('admin.user.view_user', compact('items'));
     }

@@ -16,8 +16,6 @@ class CreateAttachmentTable extends Migration
       {
               $table->increments('id');
               $table->unsignedInteger('user_id');
-              $table->unsignedInteger('machine_id');
-              $table->unsignedInteger('product_id');
               $table->string('name');
               $table->string('mime');
               $table->string('encode');

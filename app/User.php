@@ -16,7 +16,7 @@ AuthorizableContract,
 CanResetPasswordContract
 {
   use Authenticatable, Authorizable, CanResetPassword;
-  
+
   use Sluggable;
 
   /**
@@ -54,12 +54,12 @@ CanResetPasswordContract
   */
   protected $hidden = ['password', 'remember_token'];
 
-  // public function setPasswordAttribute($value){
-  //   if(!empty($value)){
-  //     $this->attributes['password']= bcrypt($value);
-  //     //$this->attributes['password'] = Hash::make($pass);
-  //   }
-  // }
+  public function setPasswordAttribute($value){
+    if(!empty($value)){
+      $this->attributes['password']= bcrypt($value);
+      //$this->attributes['password'] = Hash::make($pass);
+    }
+  }
 
     /**
     * Relacion con archivo adjunto
