@@ -31,7 +31,7 @@ class EditUserRequest extends Request {
 						'name' => 'required|max:60',
             'document'  => 'required',
             'email'  => 'required|email|unique:users,email,' .$this->route->getParameter('user'),
-            'profile' => 'in:operario,usuario,super_admin,jefe_produccion,jefe',
+						'profile' => 'in:usuario,super_admin,asesor,profesor',
             'enable'=>'in:si,no'
 		];
 	}

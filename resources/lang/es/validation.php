@@ -107,6 +107,6 @@ return [
         'email' => 'Email',
         'password'=>'Contraseña',
         'name'=>'Nombre',
-        'document'=>'Documento',
+        'document'=>'Número de documento',
     ],
 ];

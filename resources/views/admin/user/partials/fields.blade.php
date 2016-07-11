@@ -12,6 +12,18 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            {!!Form::label('first_surname', 'Primero Apellido', array('class' => 'control-label col-md-4'))!!}
+                            <div class="col-md-6">
+                                {!!Form::text('first_surname',null, array('class' => 'form-control', 'placeholder' => 'Ingrese primero Apellido'))!!}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {!!Form::label('second_surname', 'Segundo Apellido', array('class' => 'control-label col-md-4'))!!}
+                            <div class="col-md-6">
+                                {!!Form::text('second_surname',null, array('class' => 'form-control', 'placeholder' => 'Ingrese segundo Apellido'))!!}
+                            </div>
+                        </div>
+                        <div class="form-group">
                             {!!Form::label('document', 'Numero de documento', array('class' => 'control-label col-md-4'))!!}
                             <div class="col-md-6">
                                 {!!Form::text('document',null, array('class' => 'form-control', 'placeholder' => 'Ingrese número de documento'))!!}
@@ -27,7 +39,7 @@
                         <div class="form-group">
                             {!!Form::label('profile', 'Perfil', array('class' => 'control-label col-md-4'))!!}
                             <div class="col-md-6">
-                                {!!Form::select('profile',array('usuario'=>'Usuario','super_admin'=>'Administrador', 'empleado'=>'Empleado'), null, array('class'=>'form-control')) !!}
+                                {!!Form::select('profile',array('usuario'=>'Usuario','super_admin'=>'Administrador', 'asesor'=>'Asesor(a)', 'profesor'=>'Profesor(a)'), null, array('class'=>'form-control')) !!}
                             </div>
                         </div>
                         <div class="form-group">
