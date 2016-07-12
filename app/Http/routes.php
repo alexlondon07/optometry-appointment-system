@@ -47,4 +47,9 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'auth'), function() {
   Route::resource('user', 'UserController');
   Route::get('user/{slug}', ['as' => 'post', 'uses' => 'UserController@show']);
   Route::get('users/search', 'UserController@search');
+
+  //Cursos
+  Route::resource('course', 'CourseController');
+  Route::get('course/{slug}', ['as' => 'post', 'uses' => 'CourseController@show']);
+  Route::get('courses/search', 'CourseController@search');
 });

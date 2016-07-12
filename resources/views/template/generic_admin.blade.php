@@ -36,6 +36,7 @@
                 <ul class="nav navbar-nav">
                     @if (Auth::user())
                     <li><a href="{{URL::to('/')}}/admin/user" title="Usuarios">Usuarios</a></li>
+                    <li><a href="{{URL::to('/')}}/admin/course" title="Cursos">Cursos</a></li>
                     @endif
                 </ul>
 

@@ -57,7 +57,7 @@ CanResetPasswordContract
   public function setPasswordAttribute($value){
     if(!empty($value)){
       $this->attributes['password']= bcrypt($value);
-      //$this->attributes['password'] = Hash::make($pass);
+      //$this->attributes['password'] = Hash::make($value);
     }
   }
 

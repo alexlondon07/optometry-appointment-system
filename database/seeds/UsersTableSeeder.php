@@ -13,6 +13,7 @@ class UsersTableSeeder extends Seeder
     {
       DB::table('attachment')->truncate();
       DB::table('users')->truncate();
+      DB::table('courses')->truncate();
 
       factory(App\User::class)->create([
           'name' => 'Alexander andres londoño espejo',
