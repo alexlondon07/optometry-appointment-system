@@ -18,11 +18,12 @@ class UsersTableSeeder extends Seeder
       factory(App\User::class)->create([
           'name' => 'Alexander andres londoño espejo',
           'email' => 'admin@admin.com',
-          'password' => bcrypt('admin'),
+          'password' => 'admin',
           'profile' => 'super_admin',
           'enable' => 'si',
           'remember_token' => str_random(10)
       ]);
-      factory(App\User::class, 12)->create();
+      factory(App\User::class, 30)->create();
+      factory(App\Course::class, 5)->create();
     }
 }
