@@ -22,7 +22,7 @@ class CreateCourseRequest extends Request {
 	public function rules()
 	{
 		return [
-				'name' => 'required|max:60',
+				'name' => 'required|unique:courses|max:100',
         'enable'=>'in:si,no'
 		];
 	}
