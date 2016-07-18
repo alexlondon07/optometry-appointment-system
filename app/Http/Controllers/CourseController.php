@@ -12,18 +12,33 @@ use App\Course;
 use View;
 use Redirect;
 use App\Http\Requests\CreateCourseRequest;
+use App\Http\Requests\EditCourseRequest;
+use Illuminate\Routing\Route;
 
 class CourseController extends Controller
 {
+
+    /**
+    * Funcion para optimizar nuestro código y no repetir lineas
+    * [__construct description]
+    */
+    public function __construct(){
+      $this->beforeFilter('@find',['only' => ['edit', 'update', 'destroy']]);
+    }
+
+    public function find(Route $route){
+      $this->course = Course::find($route->getParameter('course'));
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-      $items = Course::paginate();
-      $items->setPath('course');
+      //Se agrega metodo search de Scope query
+      $items = Course::search($request->search)->orderBy('id', 'DESC')->paginate(15);
       return View::make('admin.course.view_course', compact('items'));
     }
 
@@ -54,23 +69,26 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+      $course = Course::where('slug','=', $slug)->firstOrFail();
+      $show = true;
+      return View::make('admin.course.new_edit_course', compact('course', 'show'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+      $show = false;
+      return view('admin.course.new_edit_course', ['course' => $this->course, 'show' => $show]);
     }
 
     /**
@@ -80,19 +98,23 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditCourseRequest $request, $id)
     {
-        //
+        $this->course->fill($request->all());
+        $this->course->save();
+        return Redirect::to('admin/course')->with('success_message', 'Registro actualizado.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        //
+      $this->course->delete();
+      return Redirect::to('admin/course')->with('success_message', 'El registro ha sido borrado.')->withInput();
     }
+
 }

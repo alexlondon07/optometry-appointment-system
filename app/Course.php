@@ -41,5 +41,15 @@ class Course extends Model {
      */
     protected $fillable = ['name', 'description', 'slug', 'enable'];
 
+		/**
+		 * Metodo para buscar
+		 * [scopeSearch description]
+		 * @param  [type] $query [description]
+		 * @param  [type] $name  [description]
+		 * @return [type]        [description]
+		 */
+		public function scopeSearch($query, $name){
+			return $query->where('name', 'LIKE', "%$name%");
+		}
 
 }

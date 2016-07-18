@@ -77,7 +77,7 @@ class UserController extends Controller
   /**
   * Display the specified resource.
   *
-  * @param  int  $slug
+  * @param  string  $slug
   * @return \Illuminate\Http\Response
   */
   public function show($slug)

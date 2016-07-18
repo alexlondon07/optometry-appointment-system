@@ -16,16 +16,21 @@
 
         <h4>{!!$items->total()!!} resultados </h4>
         <div class="controls form-inline">
-          <a href="{!! URL::to('/') !!}/admin/course/create" class="btn btn-primary pull-right">Crear Curso</a>
-          <div class="input-group">
-            {!! Form::open(array('url' => 'admin/courses/search', 'id' => 'search_form', 'method'=>'GET', 'class'=>'control-group')) !!}
-            <div class="form-group">
-              <input id="search"  name="search"  type="text" required="true" class="form-control" placeholder="Buscar..." value="@if(isset($search)){!! $search !!}@endif" >
+            <a href="{!! URL::to('/') !!}/admin/course/create" class="btn btn-primary pull-right">Crear Curso</a>
+
+            <div class="input-group">
+              {!! Form::open(array('route' => 'admin.course.index', 'method'=>'GET', 'class'=>'control-group')) !!}
+
+              <div class="form-group">
+                {{-- <input id="search"  name="search"  type="text" required="true" class="form-control" placeholder="Buscar..." value="@if(isset($search)){!! $search !!}@endif" > --}}
+                {!!Form::text('search',null, array('class' => 'form-control', 'placeholder' => 'Buscar...'))!!}
               </div>
               <button class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+
               <a href="{!!URL::to('/')!!}/admin/course" title="Refrescar"class="btn btn-default"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a>
               {!! Form::close() !!}
             </div>
+
           </div>
           <div class="table-responsive">
             @if (count($items) > 0)
