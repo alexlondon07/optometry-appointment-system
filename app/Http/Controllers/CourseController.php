@@ -74,7 +74,7 @@ class CourseController extends Controller
      */
     public function show($slug)
     {
-      $course = Course::where('slug','=', $slug)->firstOrFail();
+      $course = Course::where('slug','=', $slug)->first();
       $show = true;
       return View::make('admin.course.new_edit_course', compact('course', 'show'));
     }
