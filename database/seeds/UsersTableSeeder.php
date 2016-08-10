@@ -25,5 +25,6 @@ class UsersTableSeeder extends Seeder
       ]);
       factory(App\User::class, 30)->create();
       factory(App\Course::class, 5)->create();
+      factory(App\Student::class, 30)->create();
     }
 }

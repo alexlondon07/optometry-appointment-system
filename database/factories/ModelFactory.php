@@ -26,3 +26,20 @@ $factory->define(App\Course::class, function (Faker\Generator $faker) {
         'enable' => 'si',
     ];
 });
+
+$factory->define(App\Student::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'first_surname'=>$faker->lastName,
+        'second_surname'=>$faker->lastName,
+        'document_type'=>'CC',
+        'document_of_identity'=>$faker->postcode,
+        'age'=>$faker->randomDigit,
+        'address'=>$faker->address,
+        'contact_name'=>$faker->phoneNumber,
+        'one_contact_phone'=>$faker->phoneNumber,
+        'two_contact_phone'=>$faker->name,
+        'email'=>$faker->email,
+        'enable' => 'si'
+    ];
+});

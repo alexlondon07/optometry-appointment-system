@@ -108,5 +108,7 @@ return [
         'password'=>'Contraseña',
         'name'=>'Nombre',
         'document'=>'Número de documento',
+        'document_of_identity'=>'Número de identificación',
+        'first surname'=>'Primer apellido',
     ],
 ];

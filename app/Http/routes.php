@@ -52,4 +52,9 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'auth'), function() {
   Route::resource('course', 'CourseController');
   Route::get('course/{slug}', ['as' => 'post', 'uses' => 'CourseController@show']);
   Route::get('courses/search', 'CourseController@search');
+
+  //Estudiantes
+  Route::resource('student', 'StudentController');
+  Route::get('student/{slug}', ['as' => 'post', 'uses' => 'StudentController@show']);
+  Route::get('students/search', 'StudentController@search');
 });
