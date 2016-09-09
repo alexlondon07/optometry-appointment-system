@@ -7,11 +7,8 @@
   @if(!$show)
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">@if($user->id) Editar @else Crear @endif</h3>
-              </div>
+          <div>
+              <h1>@if($user->id) Editar @else Crear @endif Usuario</h1>
               <div class="panel-body">
 
                 {{-- Mensajes de validaciones del formulario --}}
@@ -48,7 +45,6 @@
                 {!! Form::close() !!}
               </div>
             </div>
-          </div>
         </div>
       </div>
     @else

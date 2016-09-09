@@ -10,7 +10,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">@if($course->id) Editar @else Crear @endif</h3>
+                    <h1>@if($course->id) Editar @else Crear @endif Curso</h1>
                 </div>
                 <div class="panel-body">
 
