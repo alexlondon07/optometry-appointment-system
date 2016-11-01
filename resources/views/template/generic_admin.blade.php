@@ -22,6 +22,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <link href="{{ URL::to("/bower_components/AdminLTE/dist/css/skins/skin-blue.min.css")}}" rel="stylesheet" type="text/css" />
 
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" >
+
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -154,6 +157,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Placed at the end of the document so the pages load faster -->
   <script type="text/javascript" src="{!! URL::to('js/jquery/jquery-1.11.3.min.js') !!}"></script>
   <script type="text/javascript" src="{!! URL::to('js/bootstrap/bootstrap.min.js') !!}"></script>
+  <script type="text/javascript" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
 
   <!-- AdminLTE App -->
   <script src="{{ asset ("/bower_components/AdminLTE/dist/js/app.min.js") }}" type="text/javascript"></script>
@@ -165,6 +170,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script type="text/javascript" src="{!! URL::to('/') !!}/js/bootstrap/datepicker/js/bootstrap-datepicker.js"></script>
   <script type="text/javascript">var rootUrl = "{!! URL::to('/') !!}/";</script>
   <script type="text/javascript" src="{!! URL::to('/') !!}/js/Util.js"></script>
+
   @yield('javascript_content')
   <!-- Optionally, you can add Slimscroll and FastClick plugins.
   Both of these plugins are recommended to enhance the

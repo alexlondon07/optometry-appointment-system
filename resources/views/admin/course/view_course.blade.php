@@ -13,29 +13,13 @@
         <!--Mensajes-->
         @include('admin.alert.messages-success')
         <!--Fin Mensajes-->
-
-        <h4>{!!$items->total()!!} resultados </h4>
+        
         <div class="controls form-inline">
-            <a href="{!! URL::to('/') !!}/admin/course/create" class="btn btn-primary pull-right">Crear Curso</a>
-
-            <div class="input-group">
-              {!! Form::open(array('route' => 'admin.course.index', 'method'=>'GET', 'class'=>'control-group')) !!}
-
-              <div class="form-group">
-                {{-- <input id="search"  name="search"  type="text" required="true" class="form-control" placeholder="Buscar..." value="@if(isset($search)){!! $search !!}@endif" > --}}
-                {!!Form::text('search',null, array('class' => 'form-control', 'placeholder' => 'Buscar...'))!!}
-              </div>
-              <button class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-
-              <a href="{!!URL::to('/')!!}/admin/course" title="Refrescar"class="btn btn-default"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a>
-              {!! Form::close() !!}
-            </div>
-
-          </div>
+          <a href="{!! URL::to('/') !!}/admin/course/create" class="btn btn-primary">Crear Curso</a>
           <div class="table-responsive">
-            @if (count($items) > 0)
 
-              <table class="table table-striped">
+            @if (count($items) > 0)
+              <table id="courses" class="table table-striped">
                 @if($items->isEmpty())
                   <div class="well text-center">No se encontraron registros</div>
                 @else
@@ -65,18 +49,21 @@
                         <td>{!! $item->id !!}</td>
                         <td>{!! $item->name !!}</td>
                         <td>{!! $item->enable !!}</td>
-                        <td>
-                        </tr>
-                      @endforeach
-                    </tbody>
-                  @endif
-                </table>
-                {!! $items->render() !!}
-              @else
-                No hay datos!
-              @endif
-            </div>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                @endif
+              </table>
+            @else
+              No hay datos!
+            @endif
           </div>
         </div>
+
       </div>
-    @stop
+    </div>
+  @stop
+
+  @section('javascript_content')
+    <script type="text/javascript" src="{{ URL::to('/') }}/js/Course.js"></script>
+  @stop

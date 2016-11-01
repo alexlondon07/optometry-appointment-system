@@ -14,23 +14,12 @@
         @include('admin.alert.messages-success')
         <!--Fin Mensajes-->
 
-        <h4>{!!$items->total()!!} resultados </h4>
         <div class="controls form-inline">
-          <a href="{!! URL::to('/') !!}/admin/user/create" class="btn btn-primary pull-right">Crear Usuario</a>
-          <div class="input-group">
-            {!! Form::open(array('url' => 'admin/users/search', 'id' => 'search_form', 'method'=>'GET', 'class'=>'control-group')) !!}
-            <div class="form-group">
-              <input id="search"  name="search"  type="text" required="true" class="form-control" placeholder="Buscar..." value="@if(isset($search)){!! $search !!}@endif" >
-              </div>
-              <button class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-              <a href="{!!URL::to('/')!!}/admin/user" title="Refrescar"class="btn btn-default"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a>
-              {!! Form::close() !!}
-            </div>
-          </div>
+          <a href="{!! URL::to('/') !!}/admin/user/create" class="btn btn-primary">Crear Usuario</a>
           <div class="table-responsive">
-            @if (count($items) > 0)
 
-              <table class="table table-striped">
+            @if (count($items) > 0)
+              <table id="users" class="table table-striped">
                 @if($items->isEmpty())
                   <div class="well text-center">No se encontraron registros</div>
                 @else
@@ -66,25 +55,27 @@
                         <td>{!! $item->profile !!}</td>
                         <td>{!! $item->enable !!}</td>
                         <td>
-                        @if(count($item->attachment) > 0)
-                        <a href="{!! URL::to('/') . DIRECTORY_SEPARATOR . $item->attachment[0]->upload_path . DIRECTORY_SEPARATOR .  $item->attachment[0]->name !!}" target="_blank" >
-                          <img src="{!! URL::to('/') . DIRECTORY_SEPARATOR . $item->attachment[0]->upload_path . DIRECTORY_SEPARATOR .  $item->attachment[0]->name !!}" style="max-height: 50px"/>
-                        </a>
-                      @endif
-                      </td>
-
-                <td>
-                </tr>
-              @endforeach
-            </tbody>
-          @endif
-        </table>
-        {!! $items->render() !!}
-      @else
-        No hay datos!
-      @endif
+                          @if(count($item->attachment) > 0)
+                            <a href="{!! URL::to('/') . DIRECTORY_SEPARATOR . $item->attachment[0]->upload_path . DIRECTORY_SEPARATOR .  $item->attachment[0]->name !!}" target="_blank" >
+                              <img src="{!! URL::to('/') . DIRECTORY_SEPARATOR . $item->attachment[0]->upload_path . DIRECTORY_SEPARATOR .  $item->attachment[0]->name !!}" style="max-height: 50px"/>
+                            </a>
+                          @endif
+                        </td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                @endif
+              </table>
+            @else
+            No hay datos!
+            @endif
+          </div>
+        </div>
+        
+      </div>
     </div>
-  </div>
-</div>
-</div>
-@stop
+  @stop
+
+  @section('javascript_content')
+    <script type="text/javascript" src="{{ URL::to('/') }}/js/User.js"></script>
+  @stop
