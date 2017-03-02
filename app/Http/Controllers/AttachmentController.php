@@ -11,6 +11,7 @@ class AttachmentController extends Controller {
     public static $USE_FOR_USER_AVATAR= 1;
     public static $USE_FOR_EVENT_ACTIVITY= 2;
     public static $USE_FOR_NEWS= 3;
+    public static $USE_FOR_COMPANY= 4;
 
     /**
      * Display a listing of the resource.
@@ -310,6 +311,10 @@ class AttachmentController extends Controller {
                     $arr_url[] = URL::to('/') . "/images/default_news.png";
                     break;
                 case AttachmentController::$USE_FOR_USER_AVATAR:
+                    $arr_url[] = URL::to('/') . "/images/default_user.jpg";
+                    break;
+
+                case AttachmentController::$USE_FOR_COMPANY:
                     $arr_url[] = URL::to('/') . "/images/default_user.jpg";
                     break;
             }

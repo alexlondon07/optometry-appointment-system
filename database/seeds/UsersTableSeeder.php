@@ -11,7 +11,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('attachment')->truncate();
+/*    DB::table('attachment')->truncate();
       DB::table('users')->truncate();
       DB::table('courses')->truncate();
 
@@ -25,6 +25,8 @@ class UsersTableSeeder extends Seeder
       ]);
       factory(App\User::class, 30)->create();
       factory(App\Course::class, 5)->create();
-      factory(App\Student::class, 30)->create();
+      factory(App\Student::class, 30)->create();*/
+      factory(App\Company::class, 5)->create();
+      factory(App\Roles::class, 10)->create();
     }
 }

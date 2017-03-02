@@ -58,9 +58,7 @@
               <div class="panel-body">
                 {!! Form::model($user, ['id' => 'form_user',  'role'=>'form', 'class'=>'form-horizontal']) !!}
                 @if (!empty($user))
-
-                  @include ('admin.user.partials.attachment')
-
+            
                   {{-- Campos del formulario --}}
                   @include ('admin.user.partials.fields')
                   {{-- Fin Campos del formulario --}}

@@ -35,7 +35,7 @@
 							</div>
 						</div>
 
-						<div class="form-group">
+	{{-- 					<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<div class="checkbox">
 									<label>
@@ -43,12 +43,12 @@
 									</label>
 								</div>
 							</div>
-						</div>
+						</div> --}}
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">Ingresar</button>
-								<a class="btn btn-link" href="{{ url('/password/email') }}">Has olvidado tu password?</a>
+								{{-- <a class="btn btn-link" href="{{ url('/password/email') }}">Has olvidado tu password?</a> --}}
 							</div>
 						</div>
 					</form>

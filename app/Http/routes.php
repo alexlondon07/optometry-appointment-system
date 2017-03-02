@@ -47,7 +47,7 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'auth'), function() {
   Route::resource('user', 'UserController');
   Route::get('user/{slug}', ['as' => 'post', 'uses' => 'UserController@show']);
   Route::get('users/search', 'UserController@search');
-
+/*
   //Cursos
   Route::resource('course', 'CourseController');
   Route::get('course/{slug}', ['as' => 'post', 'uses' => 'CourseController@show']);
@@ -56,5 +56,22 @@ Route::group(array('prefix' => 'admin', 'middleware' => 'auth'), function() {
   //Estudiantes
   Route::resource('student', 'StudentController');
   Route::get('student/{slug}', ['as' => 'post', 'uses' => 'StudentController@show']);
-  Route::get('students/search', 'StudentController@search');
+  Route::get('students/search', 'StudentController@search');*/
+
+  //Empresa
+  Route::resource('company', 'CompanyController');
+  Route::get('company/{slug}', ['as' => 'post', 'uses' => 'CompanyController@show']);
+  Route::get('company/search', 'CompanyController@search');
+
+
+  //Roles
+  Route::resource('roles', 'RolesController');
+  Route::get('roles/{slug}', ['as' => 'post', 'uses' => 'RolesController@show']);
+  Route::get('roles/search', 'RolesController@search');
 });
+
+
+ // llamados ajax
+ Route::group(array('prefix' => 'ajax'), function() {
+     Route::any('get_table_roles', 'CompanyController@getRolesDataTable');
+ });

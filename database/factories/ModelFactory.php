@@ -20,7 +20,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Course::class, function (Faker\Generator $faker) {
+/*$factory->define(App\Course::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'enable' => 'si',
@@ -42,4 +42,21 @@ $factory->define(App\Student::class, function (Faker\Generator $faker) {
         'email'=>$faker->email,
         'enable' => 'si'
     ];
-});
+});*/
+
+
+        $factory->define(App\Company::class, function (Faker\Generator $faker) {
+            return [
+                'name' => $faker->name,
+                'description' => $faker->text,
+                'enable' => 'si',
+            ];
+        });
+
+
+      $factory->define(App\Roles::class, function (Faker\Generator $faker) {
+            return [
+                'rol' => $faker->name,
+                'enable' => 'si',
+            ];
+        });
