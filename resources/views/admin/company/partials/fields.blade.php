@@ -11,11 +11,22 @@
   <div class="col-lg-6">
     <div class="input-group">
         {!!Form::label('file', 'Firma Representante Legal', array('class' => 'control-label'))!!}
-        <input type="file" name="file" accept="image/*"/>
+        <input type="file" id="file" name="file"/>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
 </div>
 
+
+
+  <div class="col-lg-12">
+    <div class="input-group"></div>
+        <div class="">
+            <div id="image_refresh" class="img-rounded">
+                <output id="list"></output>
+            </div>
+        </div>
+    </div><!-- /input-group -->
+  </div>
 
 <div class="form-group">
     {!!Form::label('name', 'Descripción', array('class' => 'control-label'))!!}
@@ -24,10 +35,11 @@
     </div>
 </div>
 
+
   <div class="col-lg-12">
     <div class="input-group"></div>
       @if(count($company->attachment) > 0)
-        <div class="wrapper">
+        <div class="">
             <div id="image_refresh">
                 <img src="{!! URL::to('/') . DIRECTORY_SEPARATOR . $company->attachment[0]->upload_path . DIRECTORY_SEPARATOR .  $company->attachment[0]->name !!}" style="max-height: 100px"/><br><br>
             </div>
@@ -36,6 +48,8 @@
         @endif
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
+
+  
 
 <div class="form-group">
     <h3>Roles y Responsabilidades</h3>

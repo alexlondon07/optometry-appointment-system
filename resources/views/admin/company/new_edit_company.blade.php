@@ -86,5 +86,6 @@
 @endif
 @stop
 @section('javascript_content')
-<script type="text/javascript" src="{{ URL::to('/') }}/js/Company.js"></script>
+<script type="text/javascript" src="{{ URL::to('/') }}/js/Company.js"></script>  
+<script type="text/javascript" src="{{ URL::to('/') }}/js/image.js"></script>     
 @stop
